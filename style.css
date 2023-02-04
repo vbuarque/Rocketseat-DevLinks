@@ -93,11 +93,12 @@ body * {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 
   cursor: pointer;
+
+  animation: switch-out .2s;
 }
 
 .light-theme #switch button {
-  right: 0;
-  left: initial;
+  animation: switch-in 0.2s forwards;
 }
 
 #switch span {
@@ -112,6 +113,12 @@ body * {
 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+
+  transition: outline 0.2s;
 }
 
 /*Estilização dos botões*/
@@ -192,5 +199,24 @@ footer {
 
   .light-theme {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*Animação do switch*/
+@keyframes switch-in{
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes switch-out{
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
